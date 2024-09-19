@@ -1,151 +1,117 @@
 networks:
-    mup_network:
-        name: mup_network
+    my_network:
+        name: my_network
 
 services:
-    mup_mobiq_product_v2_nginx:
+    nginx:
         build:
             context: ./dockerfiles/nginx
-        container_name: mup_mobiq_product_v2_nginx
+        container_name: nginx
         networks:
-            - mup_network
+            - my_network
         ports:
             - "4000:80"
         volumes:
-            - mup_mobiq_product_v2_nginx_logs:/var/log/nginx
+            - nginx_logs:/var/log/nginx
             - ./public:/var/www/html
             - ./dockerfiles/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
-            - mup_mobiq_product_v2_php
+            - php
 
-    mup_mobiq_product_v2_php:
+    php:
         build:
             context: ./dockerfiles/php-fpm
-        container_name: mup_mobiq_product_v2_php
+        container_name: php
         networks:
-            - mup_network
+            - my_network
         environment:
             XDEBUG_MODE: develop,coverage,debug
             XDEBUG_CONFIG: client_host=host.docker.internal
         volumes:
-            - mup_mobiq_product_v2_php_logs:/var/log/php-fpm
+            - php_logs:/var/log/php-fpm
             - ./:/var/www
             - ./public:/var/www/html
             - ./dockerfiles/php-fpm/php.ini:/usr/local/etc/php/php.ini
         depends_on:
-            - mup_redis
-            - mup_mongo
-            - mup_prometheus
-            - mup_graylog
-            - mup_mysql
+            - redis
+            - mongo
+            - prometheus
+            - mysql
 
-    mup_redis:
+    redis:
         image: redis:7
-        container_name: mup_redis
+        container_name: redis
         networks:
-            - mup_network
+            - my_network
         volumes:
-            - mup_redis_data:/data
+            - redis_data:/data
 
-    mup_mongo:
-        image: mongo:6
-        container_name: mup_mongo
+    mongo:
+        image: mongo:7
+        volumes:
+            - mongo_db:/data/db
+        container_name: mongo_db
+        ports:
+            - 27017:27017
+        environment:
+            - MONGO_INITDB_DATABASE=mydatabase
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=root
         networks:
-            - mup_network
-        volumes:
-            - mup_mongo_db:/data/db
-            - mup_mongo_configdb:/data/configdb
-		environment:
-			MONGO_INITDB_ROOT_USERNAME: mobiq_product_v2
-			MONGO_INITDB_ROOT_PASSWORD: password
+            - my_network
 
-    mup_prometheus:
+    prometheus:
         image: prom/prometheus:v2.43.0
-        container_name: mup_prometheus
+        container_name: prometheus
         volumes:
             - ./dockerfiles/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-            - mup_prometheus_data:/prometheus
+            - prometheus_data:/prometheus
         networks:
-            - mup_network
+            - my_network
         command:
             - '--config.file=/etc/prometheus/prometheus.yml'
             - '--storage.tsdb.path=/prometheus'
             - '--web.console.libraries=/usr/share/prometheus/console_libraries'
             - '--web.console.templates=/usr/share/prometheus/consoles'
 
-    mup_prometheus_grafana:
+    prometheus_grafana:
         image: grafana/grafana:8.2.6
-        container_name: mup_prometheus_grafana
+        container_name: prometheus_grafana
         networks:
-            - mup_network
+            - my_network
         ports:
             - "3000:3000"
         volumes:
-            - mup_prometheus_grafana_data:/var/lib/grafana
-            - mup_prometheus_grafana_config:/etc/grafana
+            - prometheus_grafana_data:/var/lib/grafana
+            - prometheus_grafana_config:/etc/grafana
         depends_on:
-            - mup_prometheus
+            - prometheus
 
-    mup-elasticsearch: # Graylog doesn't support underlines as elasticsearch host
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-        container_name: mup-elasticsearch
-        environment:
-            - discovery.type=single-node
-            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-        ulimits:
-            memlock:
-                soft: -1
-                hard: -1
-        networks:
-            - mup_network
-        volumes:
-            - mup_elasticsearch_data:/usr/share/elasticsearch/data
 
-    mup_graylog:
-        image: graylog/graylog:5.0
-        container_name: mup_graylog
-        environment:
-            - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
-            - GRAYLOG_MONGODB_URI=mongodb://mup_mongo:27017/graylog
-            - GRAYLOG_ELASTICSEARCH_HOSTS=http://mup-elasticsearch:9200
-            - GRAYLOG_ROOT_PASSWORD_SHA2=8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92 #123456
-            - GRAYLOG_PASSWORD_SECRET=6f9efb466e043b9f3635827ce446e13c
-        ports:
-            - 9000:9000
-        depends_on:
-            - mup_mongo
-            - mup-elasticsearch
-        networks:
-            - mup_network
-        volumes:
-            - mup_graylog_data:/usr/share/graylog/data
-
-    mup_mysql:
+    mysql:
         image: mysql:8.0
-        container_name: mup_mysql
+        container_name: mysql
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: mobiq_product_v2
-            MYSQL_USER: product_v2
+            MYSQL_DATABASE: mydatabase
+            MYSQL_USER: user
             MYSQL_PASSWORD: password
         volumes:
-            - mup_mysql_data:/var/lib/mysql
+            - mysql_data:/var/lib/mysql
         networks:
-            - mup_network
+            - my_network
         command: --default-authentication-plugin=mysql_native_password
         ports:
             - "3306:3306"
 
 
 volumes:
-    mup_mobiq_product_v2_nginx_logs:
-    mup_mobiq_product_v2_php_logs:
-    mup_prometheus_data:
-    mup_prometheus_grafana_data:
-    mup_prometheus_grafana_config:
-    mup_redis_data:
-    mup_mongo_db:
-    mup_mongo_configdb:
-    mup_graylog_data:
-    mup_elasticsearch_data:
-    mup_mysql_data:
+    nginx_logs:
+    php_logs:
+    prometheus_data:
+    prometheus_grafana_data:
+    prometheus_grafana_config:
+    redis_data:
+    mongo_db:
+    mongo_configdb:
+    mysql_data:
