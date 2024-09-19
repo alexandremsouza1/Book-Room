@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Event;
-use App\Room;
+use App\Models\Event;
+use App\Models\Room;
 use Carbon\Carbon;
 
 class EventService

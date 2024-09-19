@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Room;
-use App\User;
+use App\Models\Room;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class SystemCalendarController extends Controller
 {
     public $sources = [
         [
-            'model'      => '\\App\\Event',
+            'model'      => '\\App\\Models\\Event',
             'date_field' => 'start_time',
             'field'      => 'title',
             'prefix'     => '',

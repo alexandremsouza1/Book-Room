@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Event;
+use App\Models\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
-use App\Room;
+use App\Models\Room;
 use App\Services\EventService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
