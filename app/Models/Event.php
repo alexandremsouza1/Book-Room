@@ -59,10 +59,17 @@ class Event extends Model
 
     public function setStartTimeAttribute($value)
     {
-        $this->attributes['start_time'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-
+        if ($value) {
+            try {
+                $date = Carbon::parse($value);
+                $this->attributes['start_time'] = $date->format('Y-m-d H:i:s');
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException("Data inválida fornecida para start_time: {$value}");
+            }
+        } else {
+            $this->attributes['start_time'] = null;
+        }
     }
-
     public function getEndTimeAttribute($value)
     {
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
@@ -71,7 +78,15 @@ class Event extends Model
 
     public function setEndTimeAttribute($value)
     {
-        $this->attributes['end_time'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-
+        if ($value) {
+            try {
+                $date = Carbon::parse($value);
+                $this->attributes['end_time'] = $date->format('Y-m-d H:i:s');
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException("Data inválida fornecida para end_time: {$value}");
+            }
+        } else {
+            $this->attributes['end_time'] = null;
+        }
     }
 }

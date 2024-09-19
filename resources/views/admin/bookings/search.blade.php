@@ -10,12 +10,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input class="form-control datetime" type="text" name="start_time" id="start_time" value="{{ request()->input('start_time') }}" placeholder="{{ trans('cruds.event.fields.start_time') }}" required>
+                        <input class="form-control datetime" type="date" name="start_time" id="start_time" value="{{ request()->input('start_time') }}" placeholder="{{ trans('cruds.event.fields.start_time') }}" required>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input class="form-control datetime" type="text" name="end_time" id="end_time" value="{{ request()->input('end_time') }}" placeholder="{{ trans('cruds.event.fields.end_time') }}" required>
+                        <input class="form-control datetime" type="date" name="end_time" id="end_time" value="{{ request()->input('end_time') }}" placeholder="{{ trans('cruds.event.fields.end_time') }}" required>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -117,7 +117,7 @@
                     </div>
                     <div class="form-group">
                         <label for="recurring_until">Recurring until</label>
-                        <input class="form-control date {{ $errors->has('recurring_until') ? 'is-invalid' : '' }}" type="text" name="recurring_until" id="recurring_until" value="{{ old('recurring_until') }}">
+                        <input class="form-control date {{ $errors->has('recurring_until') ? 'is-invalid' : '' }}" type="datetime-local" name="recurring_until" id="recurring_until" value="{{ old('recurring_until') }}">
                         @if($errors->has('recurring_until'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('recurring_until') }}

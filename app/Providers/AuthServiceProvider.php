@@ -26,9 +26,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        if (!app()->runningInConsole()) {
-            Passport::routes();
-        };
     }
 
 }

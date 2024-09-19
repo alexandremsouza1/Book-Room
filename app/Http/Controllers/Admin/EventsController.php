@@ -10,8 +10,8 @@ use App\Http\Requests\UpdateEventRequest;
 use App\Models\Room;
 use App\Services\EventService;
 use App\Models\User;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class EventsController extends Controller
