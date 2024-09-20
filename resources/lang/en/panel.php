@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Faculty',
+    'site_title' => 'Book Room',
 ];

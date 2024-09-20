@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MetricsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
@@ -23,7 +24,7 @@ Auth::routes(['register' => false]);
 
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['\App\Http\Middleware\AuthGates']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['\App\Http\Middleware\AuthGates', '\App\Http\Middleware\MetricsMiddleware']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -55,6 +56,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     Route::resource('transactions', 'TransactionsController')->only(['index']);
 });
+
+//prometheus
+Route::get('/metrics', [MetricsController::class, 'index']);
 
 //coverage phpunit
 Route::get('/coverage', function () {

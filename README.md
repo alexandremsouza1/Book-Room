@@ -6,6 +6,7 @@ Overview
 This diagram illustrates the flow of a reservation request in our system, from the user to the database update and notification sending. We use an asynchronous architecture with queues (RabbitMQ) to process reservations efficiently.
 How to Run the Project
 
+Adminpanel is generated with Laravel generator: [QuickAdminPanel.com](https://quickadminpanel.com)
  
 ### Deploy
 
@@ -15,9 +16,12 @@ docker-compose up -d
 
 php artisan migrate
 
+php artisan db:seed
 
 ## Coverage
     Access test coverage: Open your browser and go to http://localhost:4000/coverage to view test results.
+
+    Generate tests: php artisan test --coverage-html=public/coverage
 
 ### Architecture Details
 
