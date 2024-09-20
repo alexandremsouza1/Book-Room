@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Event;
 use App\Models\Room;
+use App\Models\User;
 use App\Services\EventService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -17,17 +18,18 @@ class ProcessBook implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $data;
-    public $auth;
+    public $user_id;
+    public $user_info;
 
     /**
      * Create a new job instance.
      *
-     * @param array $data
      */
-    public function __construct($data)
+    public function __construct($data,$user_id,$user_info)
     {
         $this->data = $data;
-        $this->auth = auth();
+        $this->user_id = $user_id;
+        $this->user_info = $user_info;
     }
 
     /**
@@ -35,7 +37,7 @@ class ProcessBook implements ShouldQueue
      */
     public function handle(EventService $eventService): void
     {
-        $this->data['user_id'] = $this->auth->id();
+        $this->data['user_id'] = $this->user_id;
 
         $validator = validator($this->data, [
             'title'   => 'required',
@@ -52,7 +54,7 @@ class ProcessBook implements ShouldQueue
             return;
         }
 
-        if (!$this->auth->user()->is_admin && !$eventService->chargeHourlyRate($this->data, $room)) {
+        if (!$this->user_info->is_admin && !$eventService->chargeHourlyRate($this->data, $room)) {
             return;
         }
 

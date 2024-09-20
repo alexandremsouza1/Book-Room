@@ -19,7 +19,10 @@ class ProcessBookTest extends TestCase
         $this->actingAs($user);
     
         // Certifique-se de que a fila está sendo fakeada
-        //Queue::fake();
+        $auth = auth();
+
+        $userId = $auth->id(); 
+        $userInfo = $auth->user(); 
     
         // Crie o job com os dados necessários
         $job = new ProcessBook([
@@ -30,7 +33,7 @@ class ProcessBookTest extends TestCase
             "title" => "testes",
             "description" => "tesets",
             "recurring_until" => "2024-09-19T10:10",
-        ]);
+        ],$userId,$userInfo);
     
         // Despache o job
         dispatch($job);

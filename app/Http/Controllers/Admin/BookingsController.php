@@ -38,8 +38,11 @@ class BookingsController extends Controller
 
     public function bookRoom(Request $request)
     {
-        $params = $request->only(['room_id', 'user_id']);
-        ProcessBook::dispatch($params);
+        $auth = auth();
+        $userId = $auth->id(); 
+        $user = $auth->user(); 
+        $params = $request->all();
+        ProcessBook::dispatch($params,$userId,$user);
     
         return redirect()->route('admin.systemCalendar')->withStatus('Your booking is being processed.');
     }
