@@ -9,30 +9,36 @@ use App\Jobs\ProcessBook;
 use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class BookingsController extends Controller
 {
+    const CACHE_TTL = 300;
+
     public function searchRoom(Request $request)
     {
         $rooms = null;
-        if($request->filled(['start_time', 'end_time', 'capacity'])) {
-            $times = [
-                Carbon::parse($request->input('start_time')),
-                Carbon::parse($request->input('end_time')),
-            ];
-
-            $rooms = Room::where('capacity', '>=', $request->input('capacity'))
-                ->whereDoesntHave('events', function ($query) use ($times) {
-                    $query->whereBetween('start_time', $times)
-                        ->orWhereBetween('end_time', $times)
-                        ->orWhere(function ($query) use ($times) {
-                            $query->where('start_time', '<', $times[0])
-                                ->where('end_time', '>', $times[1]);
-                        });
-                })
-                ->get();
+        $cache_search_key = md5(json_encode($request->only('start_time', 'end_time', 'capacity')));
+        if ($request->filled(['start_time', 'end_time', 'capacity'])) {
+            $rooms = Cache::remember($cache_search_key, self::CACHE_TTL, function () use ($request) {
+                $times = [
+                    Carbon::parse($request->input('start_time')),
+                    Carbon::parse($request->input('end_time')),
+                ];
+    
+                return Room::where('capacity', '>=', $request->input('capacity'))
+                    ->whereDoesntHave('events', function ($query) use ($times) {
+                        $query->whereBetween('start_time', $times)
+                            ->orWhereBetween('end_time', $times)
+                            ->orWhere(function ($query) use ($times) {
+                                $query->where('start_time', '<', $times[0])
+                                    ->where('end_time', '>', $times[1]);
+                            });
+                    })
+                    ->get();
+            });
         }
-
+    
         return view('admin.bookings.search', compact('rooms'));
     }
 
