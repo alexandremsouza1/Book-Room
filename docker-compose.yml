@@ -104,6 +104,34 @@ services:
         ports:
             - "3306:3306"
 
+    rabbitmq:
+        container_name: rabbitmq
+        image: rabbitmq:3-management
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        environment:
+            RABBITMQ_DEFAULT_USER: guest
+            RABBITMQ_DEFAULT_PASS: guest
+        networks:
+            - my_network
+
+    supervisor:
+        container_name: supervisor
+        build:
+            context: ./
+            dockerfile: dockerfiles/supervisor/Dockerfile.supervisor
+        volumes:
+            - .:/var/www/html
+        restart: unless-stopped
+        environment:
+            - APP_ROOT=/var/www/html
+            - QUEUE_DRIVER=${QUEUE_CONNECTION}
+            - OPTIONS=${QUEUE_OPTIONS}
+            - NUM_PROCS=${NUM_PROCS}
+        networks:
+            - my_network
+    
 
 volumes:
     nginx_logs:

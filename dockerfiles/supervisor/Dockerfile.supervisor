@@ -1,0 +1,42 @@
+FROM php:8.3-fpm
+
+# Update and install dependencies
+RUN apt-get update && apt-get install -y \ 
+    git \ 
+    zip \
+    unzip \
+    libcurl4-openssl-dev \
+    pkg-config \
+    libssl-dev \
+    libgd-dev \
+&& rm -rf /var/lib/apt/lists/*
+
+# Install PHP Extensions
+RUN pecl install redis \
+    && pecl install excimer \
+    && docker-php-ext-enable redis \
+    && docker-php-ext-install pcntl
+
+# Install and enable PDO MySQL extension
+RUN docker-php-ext-install pdo_mysql
+
+# Install and enable Mongo extension
+RUN pecl install mongodb \
+     && docker-php-ext-enable mongodb
+
+# Install and enable bcmath extension
+RUN docker-php-ext-install bcmath
+
+# Enable sockets
+RUN docker-php-ext-install sockets
+
+# Install and configure Supervisor
+RUN echo "Installing Supervisor...."
+RUN whoami
+RUN apt-get update && apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
+RUN chmod -R 777 /var/log/supervisor
+COPY dockerfiles/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
+
+# Run
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
