@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/app/Http/Controllers/Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../_css/bootstrap.min.css?v=11.0.6" rel="stylesheet" type="text/css">
+  <link href="../../../_css/nv.d3.min.css?v=11.0.6" rel="stylesheet" type="text/css">
+  <link href="../../../_css/style.css?v=11.0.6" rel="stylesheet" type="text/css">
+  <link href="../../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../../index.html">/var/www/app</a></li>
+         <li class="breadcrumb-item"><a href="../../index.html">Http</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">Controllers</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="BalanceController.php.html#9">App\Http\Controllers\Admin\BalanceController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BookingsController.php.html#14">App\Http\Controllers\Admin\BookingsController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#17">App\Http\Controllers\Admin\EventsController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HomeController.php.html#5">App\Http\Controllers\Admin\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#14">App\Http\Controllers\Admin\PermissionsController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#15">App\Http\Controllers\Admin\RolesController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#14">App\Http\Controllers\Admin\RoomsController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SystemCalendarController.php.html#11">App\Http\Controllers\Admin\SystemCalendarController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionsController.php.html#11">App\Http\Controllers\Admin\TransactionsController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#15">App\Http\Controllers\Admin\UsersController</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="EventsController.php.html#17">App\Http\Controllers\Admin\EventsController</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="SystemCalendarController.php.html#11">App\Http\Controllers\Admin\SystemCalendarController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="BalanceController.php.html#9">App\Http\Controllers\Admin\BalanceController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="BookingsController.php.html#14">App\Http\Controllers\Admin\BookingsController</a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="BalanceController.php.html#11"><abbr title="App\Http\Controllers\Admin\BalanceController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BalanceController.php.html#20"><abbr title="App\Http\Controllers\Admin\BalanceController::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BookingsController.php.html#18"><abbr title="App\Http\Controllers\Admin\BookingsController::searchRoom">searchRoom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BookingsController.php.html#45"><abbr title="App\Http\Controllers\Admin\BookingsController::bookRoom">bookRoom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#19"><abbr title="App\Http\Controllers\Admin\EventsController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#28"><abbr title="App\Http\Controllers\Admin\EventsController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#39"><abbr title="App\Http\Controllers\Admin\EventsController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#57"><abbr title="App\Http\Controllers\Admin\EventsController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#70"><abbr title="App\Http\Controllers\Admin\EventsController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#78"><abbr title="App\Http\Controllers\Admin\EventsController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#87"><abbr title="App\Http\Controllers\Admin\EventsController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventsController.php.html#97"><abbr title="App\Http\Controllers\Admin\EventsController::massDestroy">massDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HomeController.php.html#7"><abbr title="App\Http\Controllers\Admin\HomeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#16"><abbr title="App\Http\Controllers\Admin\PermissionsController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#25"><abbr title="App\Http\Controllers\Admin\PermissionsController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#32"><abbr title="App\Http\Controllers\Admin\PermissionsController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#40"><abbr title="App\Http\Controllers\Admin\PermissionsController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#47"><abbr title="App\Http\Controllers\Admin\PermissionsController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#55"><abbr title="App\Http\Controllers\Admin\PermissionsController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#62"><abbr title="App\Http\Controllers\Admin\PermissionsController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PermissionsController.php.html#72"><abbr title="App\Http\Controllers\Admin\PermissionsController::massDestroy">massDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#17"><abbr title="App\Http\Controllers\Admin\RolesController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#26"><abbr title="App\Http\Controllers\Admin\RolesController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#35"><abbr title="App\Http\Controllers\Admin\RolesController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#44"><abbr title="App\Http\Controllers\Admin\RolesController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#55"><abbr title="App\Http\Controllers\Admin\RolesController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#64"><abbr title="App\Http\Controllers\Admin\RolesController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#73"><abbr title="App\Http\Controllers\Admin\RolesController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RolesController.php.html#83"><abbr title="App\Http\Controllers\Admin\RolesController::massDestroy">massDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#16"><abbr title="App\Http\Controllers\Admin\RoomsController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#25"><abbr title="App\Http\Controllers\Admin\RoomsController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#32"><abbr title="App\Http\Controllers\Admin\RoomsController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#40"><abbr title="App\Http\Controllers\Admin\RoomsController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#47"><abbr title="App\Http\Controllers\Admin\RoomsController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#55"><abbr title="App\Http\Controllers\Admin\RoomsController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#62"><abbr title="App\Http\Controllers\Admin\RoomsController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RoomsController.php.html#72"><abbr title="App\Http\Controllers\Admin\RoomsController::massDestroy">massDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SystemCalendarController.php.html#24"><abbr title="App\Http\Controllers\Admin\SystemCalendarController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionsController.php.html#13"><abbr title="App\Http\Controllers\Admin\TransactionsController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#17"><abbr title="App\Http\Controllers\Admin\UsersController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#26"><abbr title="App\Http\Controllers\Admin\UsersController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#35"><abbr title="App\Http\Controllers\Admin\UsersController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#44"><abbr title="App\Http\Controllers\Admin\UsersController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#55"><abbr title="App\Http\Controllers\Admin\UsersController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#64"><abbr title="App\Http\Controllers\Admin\UsersController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#73"><abbr title="App\Http\Controllers\Admin\UsersController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UsersController.php.html#83"><abbr title="App\Http\Controllers\Admin\UsersController::massDestroy">massDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="SystemCalendarController.php.html#24"><abbr title="App\Http\Controllers\Admin\SystemCalendarController::index">index</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="EventsController.php.html#39"><abbr title="App\Http\Controllers\Admin\EventsController::store">store</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="BalanceController.php.html#20"><abbr title="App\Http\Controllers\Admin\BalanceController::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="BookingsController.php.html#18"><abbr title="App\Http\Controllers\Admin\BookingsController::searchRoom">searchRoom</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.6</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.11</a> and <a href="https://phpunit.de/">PHPUnit 11.3.6</a> at Fri Sep 20 13:04:51 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../_js/jquery.min.js?v=11.0.6" type="text/javascript"></script>
+  <script src="../../../_js/d3.min.js?v=11.0.6" type="text/javascript"></script>
+  <script src="../../../_js/nv.d3.min.js?v=11.0.6" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([10,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([47,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,3,"<a href=\"BalanceController.php.html#9\">App\\Http\\Controllers\\Admin\\BalanceController<\/a>"],[0,3,"<a href=\"BookingsController.php.html#14\">App\\Http\\Controllers\\Admin\\BookingsController<\/a>"],[0,10,"<a href=\"EventsController.php.html#17\">App\\Http\\Controllers\\Admin\\EventsController<\/a>"],[0,1,"<a href=\"HomeController.php.html#5\">App\\Http\\Controllers\\Admin\\HomeController<\/a>"],[0,8,"<a href=\"PermissionsController.php.html#14\">App\\Http\\Controllers\\Admin\\PermissionsController<\/a>"],[0,8,"<a href=\"RolesController.php.html#15\">App\\Http\\Controllers\\Admin\\RolesController<\/a>"],[0,8,"<a href=\"RoomsController.php.html#14\">App\\Http\\Controllers\\Admin\\RoomsController<\/a>"],[0,4,"<a href=\"SystemCalendarController.php.html#11\">App\\Http\\Controllers\\Admin\\SystemCalendarController<\/a>"],[0,1,"<a href=\"TransactionsController.php.html#11\">App\\Http\\Controllers\\Admin\\TransactionsController<\/a>"],[0,8,"<a href=\"UsersController.php.html#15\">App\\Http\\Controllers\\Admin\\UsersController<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"BalanceController.php.html#11\">App\\Http\\Controllers\\Admin\\BalanceController::index<\/a>"],[0,2,"<a href=\"BalanceController.php.html#20\">App\\Http\\Controllers\\Admin\\BalanceController::add<\/a>"],[0,2,"<a href=\"BookingsController.php.html#18\">App\\Http\\Controllers\\Admin\\BookingsController::searchRoom<\/a>"],[0,1,"<a href=\"BookingsController.php.html#45\">App\\Http\\Controllers\\Admin\\BookingsController::bookRoom<\/a>"],[0,1,"<a href=\"EventsController.php.html#19\">App\\Http\\Controllers\\Admin\\EventsController::index<\/a>"],[0,1,"<a href=\"EventsController.php.html#28\">App\\Http\\Controllers\\Admin\\EventsController::create<\/a>"],[0,3,"<a href=\"EventsController.php.html#39\">App\\Http\\Controllers\\Admin\\EventsController::store<\/a>"],[0,1,"<a href=\"EventsController.php.html#57\">App\\Http\\Controllers\\Admin\\EventsController::edit<\/a>"],[0,1,"<a href=\"EventsController.php.html#70\">App\\Http\\Controllers\\Admin\\EventsController::update<\/a>"],[0,1,"<a href=\"EventsController.php.html#78\">App\\Http\\Controllers\\Admin\\EventsController::show<\/a>"],[0,1,"<a href=\"EventsController.php.html#87\">App\\Http\\Controllers\\Admin\\EventsController::destroy<\/a>"],[0,1,"<a href=\"EventsController.php.html#97\">App\\Http\\Controllers\\Admin\\EventsController::massDestroy<\/a>"],[0,1,"<a href=\"HomeController.php.html#7\">App\\Http\\Controllers\\Admin\\HomeController::index<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#16\">App\\Http\\Controllers\\Admin\\PermissionsController::index<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#25\">App\\Http\\Controllers\\Admin\\PermissionsController::create<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#32\">App\\Http\\Controllers\\Admin\\PermissionsController::store<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#40\">App\\Http\\Controllers\\Admin\\PermissionsController::edit<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#47\">App\\Http\\Controllers\\Admin\\PermissionsController::update<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#55\">App\\Http\\Controllers\\Admin\\PermissionsController::show<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#62\">App\\Http\\Controllers\\Admin\\PermissionsController::destroy<\/a>"],[0,1,"<a href=\"PermissionsController.php.html#72\">App\\Http\\Controllers\\Admin\\PermissionsController::massDestroy<\/a>"],[0,1,"<a href=\"RolesController.php.html#17\">App\\Http\\Controllers\\Admin\\RolesController::index<\/a>"],[0,1,"<a href=\"RolesController.php.html#26\">App\\Http\\Controllers\\Admin\\RolesController::create<\/a>"],[0,1,"<a href=\"RolesController.php.html#35\">App\\Http\\Controllers\\Admin\\RolesController::store<\/a>"],[0,1,"<a href=\"RolesController.php.html#44\">App\\Http\\Controllers\\Admin\\RolesController::edit<\/a>"],[0,1,"<a href=\"RolesController.php.html#55\">App\\Http\\Controllers\\Admin\\RolesController::update<\/a>"],[0,1,"<a href=\"RolesController.php.html#64\">App\\Http\\Controllers\\Admin\\RolesController::show<\/a>"],[0,1,"<a href=\"RolesController.php.html#73\">App\\Http\\Controllers\\Admin\\RolesController::destroy<\/a>"],[0,1,"<a href=\"RolesController.php.html#83\">App\\Http\\Controllers\\Admin\\RolesController::massDestroy<\/a>"],[0,1,"<a href=\"RoomsController.php.html#16\">App\\Http\\Controllers\\Admin\\RoomsController::index<\/a>"],[0,1,"<a href=\"RoomsController.php.html#25\">App\\Http\\Controllers\\Admin\\RoomsController::create<\/a>"],[0,1,"<a href=\"RoomsController.php.html#32\">App\\Http\\Controllers\\Admin\\RoomsController::store<\/a>"],[0,1,"<a href=\"RoomsController.php.html#40\">App\\Http\\Controllers\\Admin\\RoomsController::edit<\/a>"],[0,1,"<a href=\"RoomsController.php.html#47\">App\\Http\\Controllers\\Admin\\RoomsController::update<\/a>"],[0,1,"<a href=\"RoomsController.php.html#55\">App\\Http\\Controllers\\Admin\\RoomsController::show<\/a>"],[0,1,"<a href=\"RoomsController.php.html#62\">App\\Http\\Controllers\\Admin\\RoomsController::destroy<\/a>"],[0,1,"<a href=\"RoomsController.php.html#72\">App\\Http\\Controllers\\Admin\\RoomsController::massDestroy<\/a>"],[0,4,"<a href=\"SystemCalendarController.php.html#24\">App\\Http\\Controllers\\Admin\\SystemCalendarController::index<\/a>"],[0,1,"<a href=\"TransactionsController.php.html#13\">App\\Http\\Controllers\\Admin\\TransactionsController::index<\/a>"],[0,1,"<a href=\"UsersController.php.html#17\">App\\Http\\Controllers\\Admin\\UsersController::index<\/a>"],[0,1,"<a href=\"UsersController.php.html#26\">App\\Http\\Controllers\\Admin\\UsersController::create<\/a>"],[0,1,"<a href=\"UsersController.php.html#35\">App\\Http\\Controllers\\Admin\\UsersController::store<\/a>"],[0,1,"<a href=\"UsersController.php.html#44\">App\\Http\\Controllers\\Admin\\UsersController::edit<\/a>"],[0,1,"<a href=\"UsersController.php.html#55\">App\\Http\\Controllers\\Admin\\UsersController::update<\/a>"],[0,1,"<a href=\"UsersController.php.html#64\">App\\Http\\Controllers\\Admin\\UsersController::show<\/a>"],[0,1,"<a href=\"UsersController.php.html#73\">App\\Http\\Controllers\\Admin\\UsersController::destroy<\/a>"],[0,1,"<a href=\"UsersController.php.html#83\">App\\Http\\Controllers\\Admin\\UsersController::massDestroy<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

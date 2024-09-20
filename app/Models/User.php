@@ -61,8 +61,16 @@ class User extends Authenticatable
 
     public function setEmailVerifiedAtAttribute($value)
     {
-        $this->attributes['email_verified_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-
+        if ($value) {
+            try {
+                $date = Carbon::parse($value);
+                $this->attributes['email_verified_at'] = $date->format('Y-m-d H:i:s');
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException("Data inválida fornecida para email_verified_at: {$value}");
+            }
+        } else {
+            $this->attributes['email_verified_at'] = null;
+        }
     }
 
     public function setPasswordAttribute($input)

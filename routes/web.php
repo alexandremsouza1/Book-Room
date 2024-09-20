@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,3 +56,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('transactions', 'TransactionsController')->only(['index']);
 });
 
+//coverage phpunit
+Route::get('/coverage', function () {
+    $path = public_path('coverage/index.html');
+
+    if (!File::exists($path)) {
+        abort(404, 'Relatório de cobertura não encontrado.');
+    }
+
+    return Response::file($path);
+});

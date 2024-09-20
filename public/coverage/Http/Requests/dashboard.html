@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/app/Http/Requests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../_css/bootstrap.min.css?v=11.0.6" rel="stylesheet" type="text/css">
+  <link href="../../_css/nv.d3.min.css?v=11.0.6" rel="stylesheet" type="text/css">
+  <link href="../../_css/style.css?v=11.0.6" rel="stylesheet" type="text/css">
+  <link href="../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../index.html">/var/www/app</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">Http</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Requests</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="MassDestroyEventRequest.php.html#10">App\Http\Requests\MassDestroyEventRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyPermissionRequest.php.html#10">App\Http\Requests\MassDestroyPermissionRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyRoleRequest.php.html#10">App\Http\Requests\MassDestroyRoleRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyRoomRequest.php.html#10">App\Http\Requests\MassDestroyRoomRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyUserRequest.php.html#10">App\Http\Requests\MassDestroyUserRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreEventRequest.php.html#10">App\Http\Requests\StoreEventRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StorePermissionRequest.php.html#10">App\Http\Requests\StorePermissionRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreRoleRequest.php.html#10">App\Http\Requests\StoreRoleRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreRoomRequest.php.html#10">App\Http\Requests\StoreRoomRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreUserRequest.php.html#10">App\Http\Requests\StoreUserRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateEventRequest.php.html#10">App\Http\Requests\UpdateEventRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdatePermissionRequest.php.html#10">App\Http\Requests\UpdatePermissionRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateRoleRequest.php.html#10">App\Http\Requests\UpdateRoleRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateRoomRequest.php.html#10">App\Http\Requests\UpdateRoomRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateUserRequest.php.html#10">App\Http\Requests\UpdateUserRequest</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="MassDestroyEventRequest.php.html#12"><abbr title="App\Http\Requests\MassDestroyEventRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyEventRequest.php.html#20"><abbr title="App\Http\Requests\MassDestroyEventRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyPermissionRequest.php.html#12"><abbr title="App\Http\Requests\MassDestroyPermissionRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyPermissionRequest.php.html#20"><abbr title="App\Http\Requests\MassDestroyPermissionRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyRoleRequest.php.html#12"><abbr title="App\Http\Requests\MassDestroyRoleRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyRoleRequest.php.html#20"><abbr title="App\Http\Requests\MassDestroyRoleRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyRoomRequest.php.html#12"><abbr title="App\Http\Requests\MassDestroyRoomRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyRoomRequest.php.html#20"><abbr title="App\Http\Requests\MassDestroyRoomRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyUserRequest.php.html#12"><abbr title="App\Http\Requests\MassDestroyUserRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MassDestroyUserRequest.php.html#20"><abbr title="App\Http\Requests\MassDestroyUserRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreEventRequest.php.html#12"><abbr title="App\Http\Requests\StoreEventRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreEventRequest.php.html#20"><abbr title="App\Http\Requests\StoreEventRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StorePermissionRequest.php.html#12"><abbr title="App\Http\Requests\StorePermissionRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StorePermissionRequest.php.html#20"><abbr title="App\Http\Requests\StorePermissionRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreRoleRequest.php.html#12"><abbr title="App\Http\Requests\StoreRoleRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreRoleRequest.php.html#20"><abbr title="App\Http\Requests\StoreRoleRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreRoomRequest.php.html#12"><abbr title="App\Http\Requests\StoreRoomRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreRoomRequest.php.html#20"><abbr title="App\Http\Requests\StoreRoomRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreUserRequest.php.html#12"><abbr title="App\Http\Requests\StoreUserRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StoreUserRequest.php.html#20"><abbr title="App\Http\Requests\StoreUserRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateEventRequest.php.html#12"><abbr title="App\Http\Requests\UpdateEventRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateEventRequest.php.html#20"><abbr title="App\Http\Requests\UpdateEventRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdatePermissionRequest.php.html#12"><abbr title="App\Http\Requests\UpdatePermissionRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdatePermissionRequest.php.html#20"><abbr title="App\Http\Requests\UpdatePermissionRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateRoleRequest.php.html#12"><abbr title="App\Http\Requests\UpdateRoleRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateRoleRequest.php.html#20"><abbr title="App\Http\Requests\UpdateRoleRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateRoomRequest.php.html#12"><abbr title="App\Http\Requests\UpdateRoomRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateRoomRequest.php.html#20"><abbr title="App\Http\Requests\UpdateRoomRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateUserRequest.php.html#12"><abbr title="App\Http\Requests\UpdateUserRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UpdateUserRequest.php.html#20"><abbr title="App\Http\Requests\UpdateUserRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.6</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.11</a> and <a href="https://phpunit.de/">PHPUnit 11.3.6</a> at Fri Sep 20 13:04:51 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../_js/jquery.min.js?v=11.0.6" type="text/javascript"></script>
+  <script src="../../_js/d3.min.js?v=11.0.6" type="text/javascript"></script>
+  <script src="../../_js/nv.d3.min.js?v=11.0.6" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([15,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([30,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"MassDestroyEventRequest.php.html#10\">App\\Http\\Requests\\MassDestroyEventRequest<\/a>"],[0,2,"<a href=\"MassDestroyPermissionRequest.php.html#10\">App\\Http\\Requests\\MassDestroyPermissionRequest<\/a>"],[0,2,"<a href=\"MassDestroyRoleRequest.php.html#10\">App\\Http\\Requests\\MassDestroyRoleRequest<\/a>"],[0,2,"<a href=\"MassDestroyRoomRequest.php.html#10\">App\\Http\\Requests\\MassDestroyRoomRequest<\/a>"],[0,2,"<a href=\"MassDestroyUserRequest.php.html#10\">App\\Http\\Requests\\MassDestroyUserRequest<\/a>"],[0,2,"<a href=\"StoreEventRequest.php.html#10\">App\\Http\\Requests\\StoreEventRequest<\/a>"],[0,2,"<a href=\"StorePermissionRequest.php.html#10\">App\\Http\\Requests\\StorePermissionRequest<\/a>"],[0,2,"<a href=\"StoreRoleRequest.php.html#10\">App\\Http\\Requests\\StoreRoleRequest<\/a>"],[0,2,"<a href=\"StoreRoomRequest.php.html#10\">App\\Http\\Requests\\StoreRoomRequest<\/a>"],[0,2,"<a href=\"StoreUserRequest.php.html#10\">App\\Http\\Requests\\StoreUserRequest<\/a>"],[0,2,"<a href=\"UpdateEventRequest.php.html#10\">App\\Http\\Requests\\UpdateEventRequest<\/a>"],[0,2,"<a href=\"UpdatePermissionRequest.php.html#10\">App\\Http\\Requests\\UpdatePermissionRequest<\/a>"],[0,2,"<a href=\"UpdateRoleRequest.php.html#10\">App\\Http\\Requests\\UpdateRoleRequest<\/a>"],[0,2,"<a href=\"UpdateRoomRequest.php.html#10\">App\\Http\\Requests\\UpdateRoomRequest<\/a>"],[0,2,"<a href=\"UpdateUserRequest.php.html#10\">App\\Http\\Requests\\UpdateUserRequest<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"MassDestroyEventRequest.php.html#12\">App\\Http\\Requests\\MassDestroyEventRequest::authorize<\/a>"],[0,1,"<a href=\"MassDestroyEventRequest.php.html#20\">App\\Http\\Requests\\MassDestroyEventRequest::rules<\/a>"],[0,1,"<a href=\"MassDestroyPermissionRequest.php.html#12\">App\\Http\\Requests\\MassDestroyPermissionRequest::authorize<\/a>"],[0,1,"<a href=\"MassDestroyPermissionRequest.php.html#20\">App\\Http\\Requests\\MassDestroyPermissionRequest::rules<\/a>"],[0,1,"<a href=\"MassDestroyRoleRequest.php.html#12\">App\\Http\\Requests\\MassDestroyRoleRequest::authorize<\/a>"],[0,1,"<a href=\"MassDestroyRoleRequest.php.html#20\">App\\Http\\Requests\\MassDestroyRoleRequest::rules<\/a>"],[0,1,"<a href=\"MassDestroyRoomRequest.php.html#12\">App\\Http\\Requests\\MassDestroyRoomRequest::authorize<\/a>"],[0,1,"<a href=\"MassDestroyRoomRequest.php.html#20\">App\\Http\\Requests\\MassDestroyRoomRequest::rules<\/a>"],[0,1,"<a href=\"MassDestroyUserRequest.php.html#12\">App\\Http\\Requests\\MassDestroyUserRequest::authorize<\/a>"],[0,1,"<a href=\"MassDestroyUserRequest.php.html#20\">App\\Http\\Requests\\MassDestroyUserRequest::rules<\/a>"],[0,1,"<a href=\"StoreEventRequest.php.html#12\">App\\Http\\Requests\\StoreEventRequest::authorize<\/a>"],[0,1,"<a href=\"StoreEventRequest.php.html#20\">App\\Http\\Requests\\StoreEventRequest::rules<\/a>"],[0,1,"<a href=\"StorePermissionRequest.php.html#12\">App\\Http\\Requests\\StorePermissionRequest::authorize<\/a>"],[0,1,"<a href=\"StorePermissionRequest.php.html#20\">App\\Http\\Requests\\StorePermissionRequest::rules<\/a>"],[0,1,"<a href=\"StoreRoleRequest.php.html#12\">App\\Http\\Requests\\StoreRoleRequest::authorize<\/a>"],[0,1,"<a href=\"StoreRoleRequest.php.html#20\">App\\Http\\Requests\\StoreRoleRequest::rules<\/a>"],[0,1,"<a href=\"StoreRoomRequest.php.html#12\">App\\Http\\Requests\\StoreRoomRequest::authorize<\/a>"],[0,1,"<a href=\"StoreRoomRequest.php.html#20\">App\\Http\\Requests\\StoreRoomRequest::rules<\/a>"],[0,1,"<a href=\"StoreUserRequest.php.html#12\">App\\Http\\Requests\\StoreUserRequest::authorize<\/a>"],[0,1,"<a href=\"StoreUserRequest.php.html#20\">App\\Http\\Requests\\StoreUserRequest::rules<\/a>"],[0,1,"<a href=\"UpdateEventRequest.php.html#12\">App\\Http\\Requests\\UpdateEventRequest::authorize<\/a>"],[0,1,"<a href=\"UpdateEventRequest.php.html#20\">App\\Http\\Requests\\UpdateEventRequest::rules<\/a>"],[0,1,"<a href=\"UpdatePermissionRequest.php.html#12\">App\\Http\\Requests\\UpdatePermissionRequest::authorize<\/a>"],[0,1,"<a href=\"UpdatePermissionRequest.php.html#20\">App\\Http\\Requests\\UpdatePermissionRequest::rules<\/a>"],[0,1,"<a href=\"UpdateRoleRequest.php.html#12\">App\\Http\\Requests\\UpdateRoleRequest::authorize<\/a>"],[0,1,"<a href=\"UpdateRoleRequest.php.html#20\">App\\Http\\Requests\\UpdateRoleRequest::rules<\/a>"],[0,1,"<a href=\"UpdateRoomRequest.php.html#12\">App\\Http\\Requests\\UpdateRoomRequest::authorize<\/a>"],[0,1,"<a href=\"UpdateRoomRequest.php.html#20\">App\\Http\\Requests\\UpdateRoomRequest::rules<\/a>"],[0,1,"<a href=\"UpdateUserRequest.php.html#12\">App\\Http\\Requests\\UpdateUserRequest::authorize<\/a>"],[0,1,"<a href=\"UpdateUserRequest.php.html#20\">App\\Http\\Requests\\UpdateUserRequest::rules<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
