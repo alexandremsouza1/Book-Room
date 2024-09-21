@@ -70,3 +70,7 @@ Route::get('/coverage', function () {
 
     return Response::file($path);
 });
+
+Route::get('phpmyinfo', function () {
+    phpinfo(); 
+})->name('phpmyinfo');

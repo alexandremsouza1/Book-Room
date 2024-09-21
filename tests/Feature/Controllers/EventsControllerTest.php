@@ -102,7 +102,7 @@ class EventsControllerTest extends TestCase
             'end_time' => $endTime,
             'description' => 'edit description test'
         ];
-        $response = $this->post("/admin/events/{$event->id}", $params);
+        $response = $this->put("/admin/events/{$event->id}", $params);
 
         $response->assertStatus(302);
     }

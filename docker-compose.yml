@@ -24,14 +24,14 @@ services:
         container_name: php
         networks:
             - my_network
-        environment:
-            XDEBUG_MODE: develop,coverage,debug
-            XDEBUG_CONFIG: client_host=host.docker.internal
+        ports:
+            - "9009:9003"
         volumes:
             - php_logs:/var/log/php-fpm
             - ./:/var/www
             - ./public:/var/www/html
             - ./dockerfiles/php-fpm/php.ini:/usr/local/etc/php/php.ini
+            # - ./dockerfiles/php-fpm/xdebug.log:/var/log/xdebug.log
         depends_on:
             - redis
             - mongo
