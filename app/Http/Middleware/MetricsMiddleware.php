@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Prometheus\CollectorRegistry;
-use Prometheus\Storage\Redis;
 
 class MetricsMiddleware
 {
@@ -12,9 +11,9 @@ class MetricsMiddleware
 
     public function __construct()
     {
-        $registry = \Prometheus\CollectorRegistry::getDefault();
-
-        $this->histogram = $registry->registerHistogram(
+        $registry = CollectorRegistry::getDefault();
+    
+        $this->histogram = $registry->getOrRegisterHistogram(
             '',  // Namespace vazio
             'http_request_duration_seconds',
             'Duration of HTTP requests',

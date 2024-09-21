@@ -69,7 +69,9 @@ class EventsController extends Controller
 
     public function update(UpdateEventRequest $request, Event $event)
     {
-        $event->update($request->all());
+        if (!$event->update($request->all())) {
+            return response(null, Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
 
         return redirect()->route('admin.events.index');
 
