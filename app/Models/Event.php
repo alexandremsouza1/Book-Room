@@ -6,7 +6,23 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use \DateTimeInterface;
-
+/**
+ * @OA\Schema(
+ *     schema="Event",
+ *     type="object",
+ *     required={"title", "room_id", "user_id", "start_time", "end_time"},
+ *     @OA\Property(property="id", type="integer", example=1),
+ *     @OA\Property(property="title", type="string", example="Reunião de Teste"),
+ *     @OA\Property(property="room_id", type="integer", example=1),
+ *     @OA\Property(property="user_id", type="integer", example=1),
+ *     @OA\Property(property="start_time", type="string", format="date-time", example="2024-10-10 10:00:00"),
+ *     @OA\Property(property="end_time", type="string", format="date-time", example="2024-10-10 11:00:00"),
+ *     @OA\Property(property="description", type="string", example="Descrição do evento"),
+ *     @OA\Property(property="created_at", type="string", format="date-time", example="2024-09-20 10:00:00"),
+ *     @OA\Property(property="updated_at", type="string", format="date-time", example="2024-09-20 10:00:00"),
+ *     @OA\Property(property="deleted_at", type="string", format="date-time", example="2024-09-20 10:00:00"),
+ * )
+ */
 class Event extends Model
 {
     use SoftDeletes;

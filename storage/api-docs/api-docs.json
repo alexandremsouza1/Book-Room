@@ -1,0 +1,311 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "Documentação do projeto Plastika Challange",
+        "contact": {
+            "email": "support@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/admin/search-room": {
+            "get": {
+                "tags": [
+                    "Admin Bookings"
+                ],
+                "summary": "Buscar sala disponível",
+                "description": "Busca por salas disponíveis no sistema.",
+                "operationId": "searchRoom",
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Data para buscar disponibilidade",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Salas disponíveis retornadas"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/admin/book-room": {
+            "post": {
+                "tags": [
+                    "Admin Bookings"
+                ],
+                "summary": "Reservar sala",
+                "description": "Permite reservar uma sala para uma data específica.",
+                "operationId": "bookRoom",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "room_id": {
+                                        "type": "integer"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "example": {
+                                "room_id": 1,
+                                "date": "2024-10-10"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Sala reservada com sucesso"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/admin/events": {
+            "get": {
+                "tags": [
+                    "Admin Events"
+                ],
+                "summary": "Listar todos os eventos",
+                "description": "Retorna uma lista de todos os eventos",
+                "operationId": "getEvents",
+                "responses": {
+                    "200": {
+                        "description": "Lista de eventos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Event"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Events"
+                ],
+                "summary": "Criar um novo evento",
+                "description": "Adiciona um novo evento ao sistema",
+                "operationId": "createEvent",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Event"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Evento criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/admin/events/destroy": {
+            "delete": {
+                "tags": [
+                    "Admin Events"
+                ],
+                "summary": "Deleta múltiplos eventos",
+                "description": "Permite deletar eventos selecionados de uma vez.",
+                "operationId": "massDestroyEvents",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "example": {
+                                "ids": [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Eventos deletados com sucesso"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/admin/system-calendar": {
+            "get": {
+                "tags": [
+                    "Admin System"
+                ],
+                "summary": "Visualizar o calendário do sistema",
+                "description": "Exibe os eventos no calendário do sistema.",
+                "operationId": "getSystemCalendar",
+                "responses": {
+                    "200": {
+                        "description": "Calendário exibido com sucesso"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Event": {
+                "required": [
+                    "title",
+                    "room_id",
+                    "user_id",
+                    "start_time",
+                    "end_time"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Reunião de Teste"
+                    },
+                    "room_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-10-10 10:00:00"
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-10-10 11:00:00"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Descrição do evento"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-09-20 10:00:00"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-09-20 10:00:00"
+                    },
+                    "deleted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-09-20 10:00:00"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Admin Bookings",
+            "description": "Admin Bookings"
+        },
+        {
+            "name": "Admin Events",
+            "description": "Admin Events"
+        },
+        {
+            "name": "Admin System",
+            "description": "Admin System"
+        }
+    ]
+}

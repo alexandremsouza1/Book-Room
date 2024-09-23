@@ -14,7 +14,31 @@ use Illuminate\Support\Facades\Cache;
 class BookingsController extends Controller
 {
     const CACHE_TTL = 300;
-
+    /**
+     * @OA\Get(
+     *     path="/admin/search-room",
+     *     summary="Buscar sala disponível",
+     *     description="Busca por salas disponíveis no sistema.",
+     *     operationId="searchRoom",
+     *     tags={"Admin Bookings"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="date",
+     *         in="query",
+     *         required=true,
+     *         @OA\Schema(type="string", format="date"),
+     *         description="Data para buscar disponibilidade"
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Salas disponíveis retornadas"
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized"
+     *     )
+     * )
+     */
     public function searchRoom(Request $request)
     {
         $rooms = null;
@@ -41,7 +65,33 @@ class BookingsController extends Controller
     
         return view('admin.bookings.search', compact('rooms'));
     }
-
+    /**
+     * @OA\Post(
+     *     path="/admin/book-room",
+     *     summary="Reservar sala",
+     *     description="Permite reservar uma sala para uma data específica.",
+     *     operationId="bookRoom",
+     *     tags={"Admin Bookings"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="room_id", type="integer"),
+     *             @OA\Property(property="date", type="string", format="date"),
+     *             example={"room_id": 1, "date": "2024-10-10"}
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Sala reservada com sucesso"
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized"
+     *     )
+     * )
+     */
     public function bookRoom(Request $request)
     {
         $auth = auth();

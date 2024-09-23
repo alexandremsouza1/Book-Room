@@ -16,6 +16,25 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EventsController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/admin/events",
+     *     summary="Listar todos os eventos",
+     *     description="Retorna uma lista de todos os eventos",
+     *     operationId="getEvents",
+     *     tags={"Admin Events"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista de eventos",
+     *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Event"))
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized"
+     *     )
+     * )
+     */
     public function index()
     {
         abort_if(Gate::denies('event_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -35,7 +54,29 @@ class EventsController extends Controller
 
         return view('admin.events.create', compact('rooms', 'users'));
     }
-
+    /**
+     * @OA\Post(
+     *     path="/admin/events",
+     *     summary="Criar um novo evento",
+     *     description="Adiciona um novo evento ao sistema",
+     *     operationId="createEvent",
+     *     tags={"Admin Events"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Event")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Evento criado com sucesso",
+     *         @OA\JsonContent(ref="#/components/schemas/Event")
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized"
+     *     )
+     * )
+     */
     public function store(StoreEventRequest $request, EventService $eventService)
     {
         if ($eventService->isRoomTaken($request->all())) {
@@ -97,7 +138,32 @@ class EventsController extends Controller
         return back();
 
     }
-
+    /**
+     * @OA\Delete(
+     *     path="/admin/events/destroy",
+     *     summary="Deleta múltiplos eventos",
+     *     description="Permite deletar eventos selecionados de uma vez.",
+     *     operationId="massDestroyEvents",
+     *     tags={"Admin Events"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="ids", type="array", @OA\Items(type="integer")),
+     *             example={"ids": {1, 2, 3}}
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=204,
+     *         description="Eventos deletados com sucesso"
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized"
+     *     )
+     * )
+     */
     public function massDestroy(MassDestroyEventRequest $request)
     {
         Event::whereIn('id', request('ids'))->delete();

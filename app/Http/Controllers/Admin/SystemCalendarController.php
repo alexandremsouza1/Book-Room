@@ -20,7 +20,24 @@ class SystemCalendarController extends Controller
             'route'      => 'admin.events.edit',
         ],
     ];
-
+    /**
+     * @OA\Get(
+     *     path="/admin/system-calendar",
+     *     summary="Visualizar o calendário do sistema",
+     *     description="Exibe os eventos no calendário do sistema.",
+     *     operationId="getSystemCalendar",
+     *     tags={"Admin System"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Calendário exibido com sucesso"
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized"
+     *     )
+     * )
+     */
     public function index(Request $request)
     {
         $events = [];

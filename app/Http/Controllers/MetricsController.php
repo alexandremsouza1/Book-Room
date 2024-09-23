@@ -6,7 +6,16 @@ use Illuminate\Routing\Controller;
 use Prometheus\CollectorRegistry;
 use Prometheus\Exception\MetricsRegistrationException;
 use Prometheus\RenderTextFormat;
-
+/**
+ * @OA\Info(
+ *     title="API Documentation",
+ *     version="1.0.0",
+ *     description="Documentação do projeto Plastika Challange",
+ *     @OA\Contact(
+ *         email="support@example.com"
+ *     ),
+ * )
+ */
 class MetricsController extends Controller
 {
     protected $registry;
