@@ -30,10 +30,12 @@ class UpdateEventRequest extends FormRequest
                 'required'],
             'start_time' => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format')],
+                'date_format:Y-m-d',
+            ],
             'end_time'   => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format')],
+                'date_format:Y-m-d',
+            ]
         ];
 
     }

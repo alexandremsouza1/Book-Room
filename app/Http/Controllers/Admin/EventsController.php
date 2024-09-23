@@ -90,7 +90,9 @@ class EventsController extends Controller
     {
         abort_if(Gate::denies('event_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $event->delete();
+        if(!$event->delete()) {
+            return response(null, Response::HTTP_BAD_REQUEST);
+        }
 
         return back();
 

@@ -49,7 +49,8 @@
             </div>
             <div class="form-group">
                 <label class="required" for="start_time">{{ trans('cruds.event.fields.start_time') }}</label>
-                <input class="form-control datetime {{ $errors->has('start_time') ? 'is-invalid' : '' }}" type="text" name="start_time" id="start_time" value="{{ old('start_time') }}" required>
+                <input class="form-control datetime {{ $errors->has('start_time') ? 'is-invalid' : '' }}" type="date" name="start_time" id="start_time" value="{{ old('start_time') }}" required>
+               <?php var_dump($errors); ?>
                 @if($errors->has('start_time'))
                     <div class="invalid-feedback">
                         {{ $errors->first('start_time') }}
@@ -59,7 +60,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="end_time">{{ trans('cruds.event.fields.end_time') }}</label>
-                <input class="form-control datetime {{ $errors->has('end_time') ? 'is-invalid' : '' }}" type="text" name="end_time" id="end_time" value="{{ old('end_time') }}" required>
+                <input class="form-control datetime {{ $errors->has('end_time') ? 'is-invalid' : '' }}" type="date" name="end_time" id="end_time" value="{{ old('end_time') }}" required>
                 @if($errors->has('end_time'))
                     <div class="invalid-feedback">
                         {{ $errors->first('end_time') }}
@@ -79,7 +80,7 @@
             </div>
             <div class="form-group">
                 <label for="recurring_until">Recurring until</label>
-                <input class="form-control date {{ $errors->has('recurring_until') ? 'is-invalid' : '' }}" type="text" name="recurring_until" id="recurring_until" value="{{ old('recurring_until') }}">
+                <input class="form-control date {{ $errors->has('recurring_until') ? 'is-invalid' : '' }}" type="datetime-local" name="recurring_until" id="recurring_until" value="{{ old('recurring_until') }}">
                 @if($errors->has('recurring_until'))
                     <div class="invalid-feedback">
                         {{ $errors->first('recurring_until') }}

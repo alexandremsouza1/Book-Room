@@ -48,6 +48,12 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
+        ],
+        "report-coverage": [
+            "@php artisan test --coverage-html=public/coverage"
+        ],
+        "generate-swagger": [
+            "@php artisan l5-swagger:generate"
         ]
     },
     "extra": {

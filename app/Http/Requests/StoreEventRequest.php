@@ -5,13 +5,14 @@ namespace App\Http\Requests;
 use App\Models\Event;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate as FacadesGate;
 use Symfony\Component\HttpFoundation\Response;
 
 class StoreEventRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('event_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(FacadesGate::denies('event_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
 
@@ -30,10 +31,12 @@ class StoreEventRequest extends FormRequest
                 'required'],
             'start_time' => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format')],
+                'date_format:Y-m-d',
+            ],
             'end_time'   => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format')],
+                'date_format:Y-m-d'
+            ]
         ];
 
     }

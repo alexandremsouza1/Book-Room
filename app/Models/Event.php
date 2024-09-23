@@ -53,7 +53,8 @@ class Event extends Model
 
     public function getStartTimeAttribute($value)
     {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+        $date = Carbon::parse($value);
+        return $date->format('Y-m-d H:i:s');
 
     }
 
@@ -72,7 +73,8 @@ class Event extends Model
     }
     public function getEndTimeAttribute($value)
     {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+        $date = Carbon::parse($value);
+        return $date->format('Y-m-d H:i:s');
 
     }
 
