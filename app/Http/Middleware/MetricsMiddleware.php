@@ -8,21 +8,21 @@ use Prometheus\CollectorRegistry;
 class MetricsMiddleware
 {
     private $histogram;
-    private $counter; // Adicionando o contador
+    private $counter; 
 
     public function __construct()
     {
         $registry = CollectorRegistry::getDefault();
     
         $this->histogram = $registry->getOrRegisterHistogram(
-            '',  // Namespace vazio
+            '', 
             'http_request_duration_seconds',
             'Duration of HTTP requests',
             ['method', 'route'], 
             [0.01, 0.05, 0.1, 0.5, 1, 2, 5]
         );
 
-        // Contador para status 200
+
         $this->counter = $registry->getOrRegisterCounter(
             '',
             'http_request_total',
