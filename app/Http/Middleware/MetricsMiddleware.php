@@ -34,17 +34,16 @@ class MetricsMiddleware
     public function handle($request, Closure $next)
     {
         $startTime = microtime(true);
-
+    
         $response = $next($request);
-
+    
         $duration = microtime(true) - $startTime;
-
+    
         $this->histogram->observe($duration, [$request->method(), $request->path()]);
-
-        if ($response->getStatusCode() === 200) {
-            $this->counter->inc([$request->method(), $request->path(), '200']);
-        }
-
+    
+        $statusCode = $response->getStatusCode();
+        $this->counter->inc([$request->method(), $request->path(), (string) $statusCode]);
+    
         return $response;
     }
 }
