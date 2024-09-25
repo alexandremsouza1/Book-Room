@@ -39,10 +39,8 @@ class MetricsMiddleware
 
         $duration = microtime(true) - $startTime;
 
-        // Registrando duração
         $this->histogram->observe($duration, [$request->method(), $request->path()]);
 
-        // Incrementando contador para status 200
         if ($response->getStatusCode() === 200) {
             $this->counter->inc([$request->method(), $request->path(), '200']);
         }
